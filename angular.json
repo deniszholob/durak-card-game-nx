@@ -1,11 +1,12 @@
 {
   "version": 1,
+  "defaultProject": "web",
   "projects": {
     "web": {
       "projectType": "application",
       "root": "apps/web",
       "sourceRoot": "apps/web/src",
-      "prefix": "durak-card-game",
+      "prefix": "dcg",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -17,8 +18,16 @@
             "polyfills": "apps/web/src/polyfills.ts",
             "tsConfig": "apps/web/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["apps/web/src/favicon.ico", "apps/web/src/assets"],
-            "styles": ["apps/web/src/styles.scss"],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "global/assets",
+                "output": "./assets"
+              },
+              "apps/web/src/assets",
+              "apps/web/src/favicon.ico"
+            ],
+            "styles": ["global/styles/styles.scss", "apps/web/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -124,6 +133,9 @@
     "packageManager": "npm"
   },
   "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    },
     "@nrwl/angular": {
       "application": {
         "linter": "eslint"
@@ -149,6 +161,5 @@
     "@nrwl/angular:component": {
       "style": "scss"
     }
-  },
-  "defaultProject": "web"
+  }
 }

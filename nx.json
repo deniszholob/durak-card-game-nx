@@ -1,7 +1,7 @@
 {
-  "npmScope": "durak-card-game",
+  "npmScope": "dcg",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
     "package.json": {
@@ -28,10 +28,10 @@
   },
   "projects": {
     "web": {
-      "tags": []
+      "tags": ["scope:web"]
     },
     "web-e2e": {
-      "tags": [],
+      "tags": ["scope:web"],
       "implicitDependencies": ["web"]
     }
   }
