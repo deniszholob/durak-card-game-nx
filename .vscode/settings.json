@@ -81,4 +81,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "svg.preview.background": "transparent",
+  "liveServer.settings.port": 5501,
 }

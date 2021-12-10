@@ -1,0 +1,27 @@
+<div *ngIf="state === STATES.lobby">
+  <h1>Lobby</h1>
+  <button (click)="onCreate()">Create Game</button>
+  <br>
+  <button (click)="onJoin()">Join Game</button>
+</div>
+
+<div *ngIf="state === STATES.host">
+  <h1>Host</h1>
+  <p>Send this to your friend</p>
+  <textarea name="" id="" cols="30" rows="10">{{clientText}}</textarea>
+  <button (click)="onStart()" [disabled]="isHostStartDisabled">Start Game</button>
+</div>
+
+
+<div *ngIf="state === STATES.client">
+  <h1>Client</h1>
+  <p>{{clientInstructions}}</p>
+  <textarea name="" id="" cols="30" rows="10" [placeholder]="clientInstructions" [(ngModel)]="clientText"></textarea>
+  <button (click)="onStart()" [disabled]="!clientText || clientText.length <= 0" >Start Game</button>
+</div>
+
+
+<div *ngIf="state === STATES.game">
+  <h1>Game</h1>
+  <button (click)="onLobby()">Back to lobby</button>
+</div>
